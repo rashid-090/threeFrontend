@@ -44,6 +44,9 @@ const Index = () => {
           <div className="flex flex-col gap-y-5 md:gap-y-3 md:flex-row md:items-center justify-between">
             <div className="flex flex-col gap2">
    
+              <h1 className="text-base md:text-4xl font-semibold uppercase text-slclr">
+              Employer Profile
+            </h1>
               <h1 className="text-base md:text-xl font-semibold uppercase tracking-widest">
               Welcome {values?.fullName}
             </h1>

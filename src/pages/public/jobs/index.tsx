@@ -33,7 +33,7 @@ function Jobs() {
   return (
     <ThemeProvider theme={theme}>
       <section
-        className=" font-PoppinsRegular bg-search-bg bg-cover w-full lg:h-[40%] bg-bottom text-black py-10 lg:py-20"
+        className=" font-PoppinsRegular bg-search-bg bg-cover w-full lg:h-[40%] bg-center text-black py-10 lg:py-20"
         
       >
         <div className="w-11/12 lg:w-9/12 mx-auto relative bg-slate-100 rounded-xl lg:rounded-full shadow-md">

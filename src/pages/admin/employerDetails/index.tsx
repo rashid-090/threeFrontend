@@ -13,7 +13,8 @@ let compLogo =
 
 function EmployerDetail() {
   const { employerData } = useEmployer();
-
+  console.log(employerData);
+  
   function createMarkup() {
     return {__html: employerData?.description || loadingText};
   }

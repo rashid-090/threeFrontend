@@ -13,6 +13,7 @@ import { toast } from 'react-toastify';
 function Contactus() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [purpose, setPurpose] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
@@ -28,6 +29,7 @@ function Contactus() {
     const templateParams = {
       user_name: name,
       user_email: email,
+      user_purpose: purpose,
       user_subject: subject,
       message: message,
     };
@@ -38,6 +40,7 @@ function Contactus() {
         toast.success("The form was successfully submitted",response)
         setName('');
         setEmail('');
+        setPurpose('');
         setSubject('');
         setMessage('');
       })
@@ -58,10 +61,15 @@ function Contactus() {
           <div className='md:col-span-3 p-5 lg:p-10 flex flex-col gap-5'>
             <h1 className='text-xl font-PoppinsMedium'>Send Message</h1>
             <form onSubmit={handleSubmit} className='grid grid-cols-1 md:grid-cols-2 gap-5 font-PoppinsRegular'>
-                <input required className='rounded-3xl px-3 py-2 border-2 border-gray-200 w-full' type="text" placeholder='Your name' name='user_name' value={name} onChange={(e) => setName(e.target.value)}/>
-                <input required className='rounded-3xl px-3 py-2 border-2 border-gray-200 w-full' type="email" placeholder='Email address' name='user_email' value={email} onChange={(e) => setEmail(e.target.value)}/>
-                <input required className='rounded-3xl px-3 py-2 border-2 border-gray-200 w-full md:col-span-2' type="text" placeholder='Subject' name='user_subject' value={subject} onChange={(e) => setSubject(e.target.value)}/>
-                <textarea  rows={5} className='rounded-2xl px-3 py-2 border-2 border-gray-200 w-full md:col-span-2' placeholder='Message..' name='message' value={message} onChange={(e) => setMessage(e.target.value)}/>
+                <input required className='rounded-3xl px-3 py-2 border-2 border-gray-200 w-full placeholder:text-black' type="text" placeholder='Your name' name='user_name' value={name} onChange={(e) => setName(e.target.value)}/>
+                <input required className='rounded-3xl px-3 py-2 border-2 border-gray-200 w-full placeholder:text-black' type="email" placeholder='Email address' name='user_email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <select  name='user_purpose' value={purpose} onChange={(e) => setPurpose(e.target.value)} className='rounded-3xl outline-none px-3 py-2 border-2 border-gray-200 w-full md:col-span-2'>
+                  <option value="" >Select Purpose</option>
+                  <option value="for enquiry">For Enquiry</option>
+                  <option value="for support">For Support</option>
+                </select>
+                <input required className='rounded-3xl px-3 py-2 border-2 border-gray-200 w-full md:col-span-2 placeholder:text-black' type="text" placeholder='Subject' name='user_subject' value={subject} onChange={(e) => setSubject(e.target.value)}/>
+                <textarea  rows={5} className='rounded-2xl px-3 py-2 border-2 border-gray-200 w-full md:col-span-2 placeholder:text-black' placeholder='Message..' name='message' value={message} onChange={(e) => setMessage(e.target.value)}/>
                 <button className='bg-slclr hover:bg-slclrhr rounded-3xl duration-200 py-2.5 md:col-span-2 text-white font-RedHatDisplaySemibold text-base' type='submit'>Send</button>
             </form>
           </div>

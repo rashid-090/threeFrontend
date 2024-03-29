@@ -8,8 +8,10 @@ import Footer from "../../../components/user/footer";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
+import { useAppSelector } from "../../../store/hooks";
 
 function Home() {
+  const { user, isAuthenticated } = useAppSelector((state: any) => state.user);
   const navigate=useNavigate();
 
   useEffect(() => {
@@ -36,8 +38,20 @@ function Home() {
         </p>
       </div>
       <div className=" flex gap-5 py-5 lg:gap-10 justify-center w-full bg-[#BABABA]">
-      <button onClick={() => navigate("/auth/employee-registration")} className="bg-slclr text-white shadow-md shadow-gray-500 rounded-3xl hover:bg-slclrhr text-sm md:text-base px-5 md:px-10 py-2 md:py-3 ">Find your next job</button>
+      {!user?.role && 
+      <>
       <button onClick={() => navigate("/auth/employer-registration")} className="bg-slclr text-white shadow-md shadow-gray-500 rounded-3xl hover:bg-slclrhr text-sm md:text-base px-5 md:px-10 py-2 md:py-3 ">Find your next hire</button>
+      <button onClick={() => navigate("/jobs")} className="bg-slclr text-white shadow-md shadow-gray-500 rounded-3xl hover:bg-slclrhr text-sm md:text-base px-5 md:px-10 py-2 md:py-3 ">Find your next job</button>
+      </>
+      
+      }
+      {user?.role === "Employer" &&
+      <button onClick={() => navigate("/auth/employer-registration")} className="bg-slclr text-white shadow-md shadow-gray-500 rounded-3xl hover:bg-slclrhr text-sm md:text-base px-5 md:px-10 py-2 md:py-3 ">Find your next hire</button>
+      }
+      {user?.role === "Employee" &&
+
+      <button onClick={() => navigate("/jobs")} className="bg-slclr text-white shadow-md shadow-gray-500 rounded-3xl hover:bg-slclrhr text-sm md:text-base px-5 md:px-10 py-2 md:py-3 ">Find your next job</button>
+      }
     </div>
       {/* Job search */}
       <Jobsearch />

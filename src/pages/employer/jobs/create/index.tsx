@@ -179,9 +179,10 @@ function PostJobs() {
                 </span>
                 <span className="flex flex-col gap-1 w-full">
                   <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
-                    Close Date
+                    Close Date <span className="text-red-500">*</span>
                   </label>
                   <input
+                  required
                     className="border-2 border-gray-200 px-3 py-2 font-normal text-sm"
                     type="date"
                     placeholder="Enter Location"

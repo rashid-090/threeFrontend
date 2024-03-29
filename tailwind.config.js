@@ -46,7 +46,7 @@ module.exports = {
      backgroundImage: {
       'banner-bg1': "url('./assets/images/home/3sea1.jpg')",
       'banner-bg2': "url('./assets/images/home/3sea2.jpg')",
-      'search-bg': "url('./assets/images/jobsearch.webp')",
+      'search-bg': "url('./assets/images/jobbs.webp')",
       'resume-bg': "url('./assets/images/resumebg.webp')",
 
     }

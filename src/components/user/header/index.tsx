@@ -66,7 +66,7 @@ const Header: React.FC<HeaderProps> = () => {
     menuItems = [
       { title: `home`, url: `/` },
       { title: `about us`, url: `/about-us` },
-      { title: `resumes`, url: `/resumes` },
+      // { title: `resumes`, url: `/resumes` },
       { title: `contact us`, url: `/contact-us` },
     ];
   } else if (user?.role === "Employee") {
@@ -138,8 +138,14 @@ const Header: React.FC<HeaderProps> = () => {
                     onClick={toggleOptions}
                     className="cursor-pointer flex items-center gap-1 font-PoppinsSemibold text-slclr hover:text-black duration-150"
                   >
-                    <span>Profile</span><FaUserTie />
+                    <span>My Profile</span><FaUserTie />
                   </li>
+                  {user?.role === "Employer" &&
+                     <li className="ml-5 font-PoppinsSemibold bg-slclr px-2 py-0 text-white">Employer</li>
+                  }
+                  {user?.role === "Employee" &&
+                     <li className="ml-5 font-PoppinsSemibold bg-slclr px-2 py-0 text-white">Employee</li>
+                  }
                   <div
                     className={`bg-white border shadow-md absolute top-8 left-4 duration-200 transition-opacity origin-top ${
                       drop ? "opacity-100" : "opacity-0"

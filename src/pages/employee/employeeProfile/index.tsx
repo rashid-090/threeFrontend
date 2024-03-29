@@ -14,10 +14,29 @@ import API from "../../../config/api";
 import { toast } from "react-toastify";
 
 const catgoptions = [
-  { value: "Accounting", label: "Accounting" },
-    { value: "Banking", label: "Banking" },
+  { value: "Hospitality", label: "Hospitality" },
+    { value: "Medical & HealthCare", label: "Medical & HealthCare" },
+    { value: "Accounting", label: "Accounting" },
+    { value: "Banking & Finance", label: "Banking & Finance" },
     { value: "Digital Marketing", label: "Digital Marketing" },
-    { value: "IT", label: "IT" },
+    { value: "IT & Software", label: "IT & Software" },
+    { value: "Finance", label: "Finance" },
+    { value: "Journalist", label: "Journalist" },
+    { value: "Media & Entertaiment", label: "Media & Entertaiment" },
+    { value: "Business", label: "Business" },
+    { value: "Education & Training", label: "Education & Training" },
+    { value: "Accountant", label: "Accountant" },
+    { value: "Human Resources", label: "Human Resources" },
+    { value: "Real estate agent", label: "Real estate agent" },
+    { value: "Administrative", label: "Administrative" },
+    { value: "Agriculture", label: "Agriculture" },
+    { value: "Airline", label: "Airline" },
+    { value: "Architecture & Design", label: "Architecture & Design" },
+    { value: "Journalist", label: "Journalist" },
+    { value: "Engineering", label: "Engineering" },
+    { value: "Corporate Professionals", label: "Corporate Professionals" },
+    { value: "Beauty & Fashion", label: "Beauty & Fashion" },
+    { value: "BPO & Customer Service", label: "BPO & Customer Service" },
     { value: "Others", label: "Others" },
 ];
 
@@ -63,6 +82,9 @@ function EmployeeProfile() {
     <>
       <div className="lg:col-span-3 mt-12">
         <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+            <h1 className="text-base md:text-4xl font-semibold uppercase text-slclr">
+              Employee Profile
+            </h1>
           <div className="flex flex-col gap-y-3 md:flex-row items-start md:items-center lg:items-start justify-between">
             <h1 className="text-base md:text-xl font-semibold uppercase tracking-widest">
               Welcome {values?.fullName}
@@ -328,14 +350,15 @@ function EmployeeProfile() {
               {/* education */}
               <div className="w-full">
                 <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
-                  Education 
-                </label>
+                  Education <span className="text-red-500">*</span>
+                </label> 
                 {fields.educations.map((education: any, index: any) => (
                   <div
                     key={index}
                     className="grid grid-cols-1 md:grid-cols-2 gap-5 py-2"
                   >
                     <input
+                    required
                       className="border-2 border-gray-200 px-3 py-2 font-normal text-gray-500 text-sm w-full"
                       type="text"
                       placeholder="Institution"
@@ -350,6 +373,7 @@ function EmployeeProfile() {
                       }
                     />
                     <input
+                    required
                       className="border-2 border-gray-200 px-3 py-2 font-normal text-gray-500 text-sm w-full"
                       type="text"
                       placeholder="Qualification"
@@ -364,6 +388,7 @@ function EmployeeProfile() {
                       }
                     />
                     <input
+                    required
                       className="border-2 border-gray-200 px-3 py-2 font-normal text-gray-500 text-sm w-full"
                       type="text"
                       placeholder="From"
@@ -378,6 +403,7 @@ function EmployeeProfile() {
                       }
                     />
                     <input
+                    required
                       className="border-2 border-gray-200 px-3 py-2 font-normal text-gray-500 text-sm w-full"
                       type="text"
                       placeholder="to"
