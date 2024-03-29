@@ -1,0 +1,5 @@
+/.vscode
+.env
+/storage
+/node_modules
+/build

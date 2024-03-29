@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+div#root {
+  height: 100vh !important;
+}
+main {
+  height: 100vh !important;
+}
+.btn-search {
+  border: 1px solid !important;
+}
+.wrapper-class{
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.editor-class{
+  background-color: #fff;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  height: 100% !important;
+}
+
+.ck.ck-eitor {
+  height: 100vh !important;
+}
+
+.ck.ck-content {
+  height: 100vh !important;
+}
+
+.ck-toolbar{
+  border: 1px solid #ccc;
+}
+
+.dropFileDiv {
+  height: 40vh !important;
+  padding: 20px !important;
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dropFile {
+  padding: 40px !important;
+  width: 100% !important;
+}
+
+.MuiStack-root {
+  width: fit-content !important;
+}
+
+button.btn-primary {
+  background-color: #195890 !important;
+}
+button.btn.wrapper-button:hover {
+  border: 2px solid !important;
+}
+.MuiStack-root {
+  padding: 0px !important;
+}
+.MuiInputBase-input {
+  padding: 5px 5px 5px 10px !important;
+  background-color: #fff !important;
+}
+
+.d-flex.react-dropdown-tree-select{
+  display: flex !important;
+}
+
+.d-flex.react-dropdown-tree-select .dropdown {
+  display: flex !important;
+}
+.ml-1 {
+  margin-left: 5px !important;
+}
+.ml-2 {
+  margin-left: 17px !important;
+}
+.mr-1 {
+  margin-right: 5px !important;
+}
+
+.td {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.MuiSelect-select.MuiSelect-outlined.MuiSelect-multiple.MuiInputBase-input.MuiOutlinedInput-input {
+  padding: 10px !important;
+}
+
+.dropdown-toggle::after {
+  margin-left: auto !important;
+  margin-right: 10px !important;
+}
+
+.text-overflow {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.info-error {
+  color: #dc3545 !important;
+  font-size: small !important;
+  font-weight: bold !important;
+}
