@@ -12,7 +12,7 @@ const useRegistrationState = () => {
   const [employer, setEmployer] = useState<any>();
   const [filteredEmployees, setFilteredEmployees] = useState<any>();
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(1000);
   const [selectedEmployees, setSelectedEmployees] = useState<any[]>([]);
 
   const getEmployerList = async () => {

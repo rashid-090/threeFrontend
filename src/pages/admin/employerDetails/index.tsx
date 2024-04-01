@@ -1,5 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import {
+  Checkbox,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  ThemeProvider,
+  createTheme,
+} from "@mui/material";
 import { BiExport } from "react-icons/bi";
 import { BsBuildingsFill } from "react-icons/bs";
 import { FaUserTie } from "react-icons/fa";
@@ -8,8 +20,7 @@ import useEmployer from "./useEmployer";
 import { ProfileLogo } from "../../../assets";
 import { load } from "@fingerprintjs/fingerprintjs";
 
-let compLogo =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-rFz0nmN-YbFfvy4KgjQhlnLy7sTJydp1cQ&usqp=CAU";
+const theme = createTheme();
 
 function EmployerDetail() {
   const { employerData } = useEmployer();
@@ -20,6 +31,26 @@ function EmployerDetail() {
   }
 
   let loadingText = "Not available"
+
+
+  function createData(
+    name: string,
+    calories: number,
+    fat: number,
+    carbs: number,
+    protein: number,
+  ) {
+    return { name, calories, fat, carbs, protein };
+  }
+  
+  const rows = [
+    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+    createData('Eclair', 262, 16.0, 24, 6.0),
+    createData('Cupcake', 305, 3.7, 67, 4.3),
+    createData('Gingerbread', 356, 16.0, 49, 3.9),
+  ];
+
   return (
     <>
       <section className="min-h-screen w-full bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 overflow-hidden">
@@ -67,6 +98,37 @@ function EmployerDetail() {
             <p className="text-sm" dangerouslySetInnerHTML={createMarkup()}></p>
             
           </div>
+          {/* applied jobs */}
+          <div className="pt-10">
+            <h2 className="text-2xl font-semibold">Jobs Posted</h2>
+          </div>
+         <div className="pt-2 w-[60%]">
+          <ThemeProvider theme={theme}>
+            <TableContainer component={Paper}>
+              <Table>
+                <TableHead>
+                  <TableRow className=" bg-zinc-100">
+                    <TableCell className="">Job Title</TableCell>
+                    <TableCell className="">Posted Date</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                      <TableRow>
+                        <TableCell>Designer</TableCell>
+                        <TableCell>10-03-2024</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell>Developer</TableCell>
+                        <TableCell>10-03-2024</TableCell>
+                      </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </ThemeProvider>
+         </div>
+          
+          {/* applied jobs */}
+         
         </div>
       </section>
     </>

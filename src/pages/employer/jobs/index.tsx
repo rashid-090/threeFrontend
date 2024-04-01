@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import { MdEditSquare } from "react-icons/md";
-import { RiDeleteBin6Fill } from "react-icons/ri";
+import { MdDelete } from "react-icons/md";
 import {
   Table,
   TableBody,
@@ -146,8 +146,8 @@ function ManageJobs() {
               <TableHead>
                 <TableRow className=" bg-zinc-200">
                   <TableCell>Job Title</TableCell>
-                  {/* <TableCell>Company Name</TableCell> */}
                   <TableCell>Date</TableCell>
+                  <TableCell>Action</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -162,8 +162,8 @@ function ManageJobs() {
                     
                     <TableRow key={job.id} hover>
                       <TableCell>{job.title}</TableCell>
-                      {/* <TableCell>{job.company}</TableCell> */}
                       <TableCell>{job.closeDate}</TableCell>
+                      <TableCell><MdDelete className="text-lg hover:text-red-600 cursor-pointer"/></TableCell>
                   
                     </TableRow>
                   );

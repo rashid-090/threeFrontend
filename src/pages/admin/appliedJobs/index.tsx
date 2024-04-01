@@ -118,7 +118,7 @@ function EmployeeData() {
                   </TableCell>
                   <TableCell>Name</TableCell>
                   <TableCell>Applied job</TableCell>
-                  {/* <TableCell>Action</TableCell> */}
+                  <TableCell>Action</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -142,14 +142,14 @@ function EmployeeData() {
                         </TableCell>
                         <TableCell>{employee?.userId?.fullName}</TableCell>
                         <TableCell>{employee?.itemId?.title}</TableCell>
-                        {/* <TableCell>
+                        <TableCell>
                           <NavLink
                             to={`/superAdmin/employee-details/${employee?._id}`}
                             className="text-xs tracking-widest uppercase font-light hover:text-blue-400 cursor-pointer duration-200"
                           >
                             view
                           </NavLink>
-                        </TableCell> */}
+                        </TableCell>
                       </TableRow>
                     </>
                   );

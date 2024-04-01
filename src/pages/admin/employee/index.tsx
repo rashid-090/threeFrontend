@@ -91,7 +91,7 @@ function EmployeeData() {
                       </TableCell>
                       <TableCell>{employee?.name || Demotitle}</TableCell>
                       <TableCell>{employee?.phoneNumber || Demotitle}</TableCell>
-                      <TableCell>{employee?.country || Demotitle}</TableCell>
+                      <TableCell>{employee?.country || Demotitle}, {employee.city}</TableCell>
                       <TableCell>{employee?.workExperince || Demotitle}</TableCell>
                       <TableCell>
                         <NavLink

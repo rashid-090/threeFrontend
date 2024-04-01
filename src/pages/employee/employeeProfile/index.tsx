@@ -337,7 +337,7 @@ function EmployeeProfile() {
               <ReactQuill
                 className="pt-1"
                 theme="snow"
-                value={value || values?.description}
+                value={values?.description || value}
                 onChange={setValue}
               />
             </div>

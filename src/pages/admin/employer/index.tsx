@@ -57,7 +57,7 @@ function EmployerData() {
             <BiExport className="text-xl" />
           </button>
         </div>
-        <div>
+        <div className="pb-20">
           <TableContainer component={Paper}>
             <Table>
               <TableHead>

@@ -74,7 +74,7 @@ const useRegistrationState = () => {
   }, []);
   const [filteredEmployees, setFilteredEmployees] = useState<any>();
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(20);
+  const [rowsPerPage, setRowsPerPage] = useState(1000);
 
   const handleFilter = (e: any) => {
     const searchTerm = e.target.value.toLowerCase();
