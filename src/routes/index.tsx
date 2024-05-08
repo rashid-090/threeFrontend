@@ -13,6 +13,8 @@ const EmployeeLayout = lazy(() => import("../layouts/employeeLayout"));
 
 // Auth components
 const Login = lazy(() => import("../pages/auth/login"));
+const Forgot = lazy(() => import("../pages/auth/forgot"));
+const ResetPassword = lazy(() => import("../pages/auth/reset-password"));
 const EmplyeeRegistration = lazy(() => import("../pages/auth/employeeRegister"));
 const EmplyerRegistration = lazy(() => import("../pages/auth/employerRegister"));
 
@@ -58,6 +60,22 @@ const MainRoute: React.FC<any> = () => {
             element={
               <Suspense fallback={<Loader />}>
                 <Login />
+              </Suspense>
+            }
+          />
+          <Route
+            path={AUTH.PAGES.FORGOT_PASSWORD}
+            element={
+              <Suspense fallback={<Loader />}>
+                <Forgot />
+              </Suspense>
+            }
+          />
+          <Route
+            path={AUTH.PAGES.RESET_PASSWORD}
+            element={
+              <Suspense fallback={<Loader />}>
+                <ResetPassword />
               </Suspense>
             }
           />

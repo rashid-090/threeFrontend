@@ -118,6 +118,7 @@ enum API {
   // employer APIs
   CREATE_JOB="/employer/job",
   LIST_JOB="/employer/job",
+  DELETE_JOB="/employer/job/:id",
   LIST_RESUME="/employer/user?role=Employee&search=&filters=",
   GET_RESUME="/employer/user/:id",
 

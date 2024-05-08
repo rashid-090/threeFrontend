@@ -17,7 +17,8 @@ import {
 import useJob from './usejob'
 const theme = createTheme();
 function ManageJobs() {
-  const {jobs,filteredEmployees,page,rowsPerPage,handleFilter} =useJob()
+  const {jobs,filteredEmployees,page,rowsPerPage,handleFilter,handleDlete} =useJob()
+ 
   // const [employees] = useState([
   //   {
   //     id: 1,
@@ -163,7 +164,7 @@ function ManageJobs() {
                     <TableRow key={job.id} hover>
                       <TableCell>{job.title}</TableCell>
                       <TableCell>{job.closeDate}</TableCell>
-                      <TableCell><MdDelete className="text-lg hover:text-red-600 cursor-pointer"/></TableCell>
+                      <TableCell><MdDelete className="text-lg hover:text-red-600 cursor-pointer" onClick={()=>handleDlete(job?._id)}/></TableCell>
                   
                     </TableRow>
                   );

@@ -18,7 +18,7 @@ export const AUTH = {
   BASE_PATH: "/auth",
   PAGES: {
     LOGIN: "login",
-    FORGOT_PASSWORD: "forgot-password",
+    FORGOT_PASSWORD: "forgot",
     RESET_PASSWORD: "reset-password",
     EMPLOYEE_REGISTRATION: "employee-registration",
     EMPLOYER_REGISTRATION: "employer-registration",

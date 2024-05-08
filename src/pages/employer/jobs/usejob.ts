@@ -68,6 +68,18 @@ const useRegistrationState = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(20);
 
+  const handleDlete=async(id:any)=>{
+    const { data } = await service.delete(API.DELETE_JOB.replace(":id",id));
+    console.log(data);
+    if(data?.statusCode==200){
+      toast.success("Deleted Successfully")
+      getJobList()
+    }else{
+      toast.error("Something Went Wrong")
+    }
+    
+  }
+
   const handleFilter = (e: any) => {
     const searchTerm = e.target.value.toLowerCase();
     const filtered = jobs.filter((job: any) =>
@@ -83,6 +95,7 @@ const useRegistrationState = () => {
     page,
     rowsPerPage,
     handleFilter,
+    handleDlete
   };
 };
 

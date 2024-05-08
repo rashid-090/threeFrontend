@@ -85,7 +85,7 @@ const useRegistrationState = () => {
         jobType:selectedJobTypeOption?.value,
         gender:selectedGenderOption?.value,
         qualification:selectedQualificationOption,
-        location:`${values?.country},${values?.state},${values?.district},${values?.place}`
+        location:`${values?.country},${values?.state},${values?.district}`
       };
       const { data } = await service.post(API.CREATE_JOB, obj);
       if (data?.statusCode === 200) {

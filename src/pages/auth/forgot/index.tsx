@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {Loginpic2} from "../../../assets";
 import LogoBlack from "../../../assets/ThreeSeasonBlackLogo.svg";
 import { PiEyeThin, PiEyeSlashThin } from "react-icons/pi";
-import useLogin from "./useLogin"
+import useLogin from "./useForget"
 
 function Login() {
   const navigate = useNavigate();
@@ -29,11 +29,9 @@ function Login() {
                 />
               </Link>
               <h4 className="text-xl font-bold tracking-wider capitalize text-blue-950">
-                login
+                Forget
               </h4>
-              <p className="text-xs text-blue-950 lowercase font-medium">
-                If you have an account, please login
-              </p>
+              
               <form className="mt-5 flex flex-col gap-4" onSubmit={formik?.handleSubmit}>
                 <div className="flex flex-col gap-1">
                   <label className="text-sm text-gray-600 font-semibold">
@@ -49,49 +47,18 @@ function Login() {
                     onChange={formik?.handleChange}
                   />
                 </div>
-                <div className="flex flex-col gap-1">
-                  <label className="text-sm text-gray-600 font-semibold">
-                    Password
-                  </label>
-                  <div className="relative">
-                    <input
-                    required
-                      className="bg-gray-100 p-2 pr-12 w-full text-sm"
-                      type={open === false ? "password" : "text"}
-                      placeholder="Password"
-                      value={formik?.values?.password}
-                      name="password"
-                    
-                    onChange={formik?.handleChange}
-                    />
-                    <span className="absolute right-5 top-2 duration-200 transition-all">
-                      {open === false ? (
-                        <PiEyeThin
-                          className="text-2xl cursor-pointer"
-                          onClick={toggle}
-                        />
-                      ) : (
-                        <PiEyeSlashThin
-                          className="text-2xl cursor-pointer"
-                          onClick={toggle}
-                        />
-                      )}
-                    </span>
-                  </div>
-                </div>
+                
                 <button
                   className="capitalize bg-slclr hover:bg-slclrhr duration-200 cursor-pointer w-full p-2 rounded-xl text-white font-semibold text-base"
                   type="submit"
                 >
-                  log in
+                  Verify User
                 </button>
               </form>
             </div>
             {/* register button */}
             <div className=" text-blue-950">
-              <p className="text-xs  lowercase font-medium" style={{cursor:"pointer"}} onClick={() => navigate("/auth/forgot")}>
-                Forget Password
-              </p>
+            
               <p className="text-xs  lowercase font-medium">
                 If you don't have an account...
               </p>
