@@ -3,6 +3,7 @@ import Select from 'react-select';
 import { IoIosSearch } from 'react-icons/io';
 import { IoLocationOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const options = [
   { value: 'Accounting', label: 'Accounting' },
@@ -15,6 +16,8 @@ interface JobsearchProps {}
 const Jobsearch: React.FC<JobsearchProps> = () => {
   const navigate=useNavigate()
   const [selectedOption, setSelectedOption] = useState<any>(null);
+  const [location, setLocation] = useState<any>(null);
+  const [job, setJob] = useState<any>(null);
 
   const handleChange = (selectedOption: any) => {
     setSelectedOption(selectedOption);
@@ -30,6 +33,8 @@ const Jobsearch: React.FC<JobsearchProps> = () => {
                 className="w-full placeholder:text-sm p-[.33rem] caret-primaryclr pl-6 text-gray-700 rounded-3xl"
                 type="search"
                 placeholder="Search keywords e.g. web design"
+                value={job}
+                onChange={(e)=>setJob(e.target.value)}
               />
               {/* <label className="text-xs font-medium text-gray-500">
                 Search keywords e.g. web design
@@ -41,12 +46,20 @@ const Jobsearch: React.FC<JobsearchProps> = () => {
                 className="w-full placeholder:text-sm p-[.33rem] caret-primaryclr pl-6 rounded-3xl"
                 type="search"
                 placeholder="Search Locations"
+                value={location}
+                onChange={(e)=>setLocation(e.target.value)}
               />
               <IoLocationOutline className="absolute top-3 left-1 text-gray-400" />
             </div>
-            <button className="bg-slclr font-PoppinsMedium tracking-wider hover:bg-slclrhr duration-200 rounded-3xl uppercase text-white w-20% h-fit px-4 xl:px-8 p-[.4rem] shadow-md" onClick={()=>navigate("/jobs")}>
+            <NavLink to={`/jobs?search=${job || ''}&search2=${location || ''}`}>
+              
+            <button disabled={!job} className="bg-slclr font-PoppinsMedium tracking-wider hover:bg-slclrhr duration-200 rounded-3xl uppercase text-white w-20% h-fit px-4 xl:px-8 p-[.4rem] shadow-md" 
+            // onClick={()=>navigate(`/jobs?search=${job || ''}&search2=${location || ''}`, { state: { jobitem:job, location } })}
+            
+            >
               Find Job
             </button>
+            </NavLink>
           </form>
         </div>
       </section>

@@ -11,7 +11,7 @@ const useEmplyerDetails = () => {
     const [employeeData, setEmployeeData] = useState<any>();
     const getJobdetails = async () => {
       const { data } = await service.get(API.GET_EMPLOYER.replace(":id",id as string));
-      setEmployeeData(data?.data);
+      setEmployeeData(data?.data?.user);
     };
   
     useEffect(() => {

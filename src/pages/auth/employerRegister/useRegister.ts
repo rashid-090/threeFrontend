@@ -70,8 +70,13 @@ const useRegistrationState = () => {
           );
         else navigate(`${AUTH.BASE_PATH + "/" + AUTH.PAGES.LOGIN}`);
       } else {
-        toast.error(data?.message);
-        setErrors(data?.errors);
+        if (data?.errors?.email == "Email is unique") {
+          toast.error("User already exist in this email, Please try again");
+          setErrors(data?.errors);
+        }
+        else{
+          toast.error(data?.message)
+        }
       }
     } catch (error: any) {
       toast.error(error);

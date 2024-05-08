@@ -33,7 +33,7 @@ let notify = () =>
 function Jobsdetails() {
   const { user, isAuthenticated } = useAppSelector((state: any) => state.user);
 
-  const { jobs,id } = useJobDetails();
+  const { jobs,id,getJobdetails } = useJobDetails();
 
   const [loading, setLoading] = useState(false);
   const [clicked, setClicked] = useState(false);
@@ -43,7 +43,8 @@ function Jobsdetails() {
       const { data } = await service.post(API.APPLY_JOB,{id});
       console.log(data);
       if(data?.statusCode==200){
-notify();
+      notify();
+      getJobdetails()
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
@@ -99,8 +100,9 @@ notify();
               <button
                 onClick={() => handleClick(id)}
                 className={`mt-5 border border-slclr py-2 px-5 w-fit flex items-center gap-2 text-black hover:bg-slclr hover:text-white duration-300 uppercase text-xs font-bold group`}
+                disabled={jobs?.isApplied}
               >
-                {loading ? "Loading..." : clicked ? "Applyed" : "Apply"}
+                {loading ? "Loading..." : jobs?.isApplied ? "Applyed" : "Apply"}
                 <IoArrowForwardCircleOutline className="group-hover:translate-x-1 duration-300 text-lg" />
               </button>
             </div>

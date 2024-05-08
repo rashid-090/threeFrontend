@@ -8,13 +8,23 @@ import { useParams } from "react-router-dom";
 
 
 const useRegistrationState = () => {
-  const { loading } = useAppSelector((state) => state.user);
+  const { loading,user,isAuthenticated } = useAppSelector((state) => state.user);
+  console.log(user);
+  
   let { id } = useParams();
   const [jobs, setJobs] = useState<any>();
+
   const getJobdetails = async () => {
-    const { data } = await service.get(API.LIST_PUBLIC_JOB_DETAILS.replace(":id",id as string));
-    console.log(data?.data);
-    setJobs(data?.data);
+    if(!isAuthenticated){
+      const { data } = await service.get(API.LIST_PUBLIC_JOB_DETAILS.replace(":id",id as string));
+      console.log(data?.data);
+      setJobs(data?.data);
+
+    }else{
+      const { data } = await service.get(API.LIST_PRIVET_JOB_DETAILS.replace(":id",id as string));
+      console.log(data?.data);
+      setJobs(data?.data);
+    }
   };
 
   useEffect(() => {
@@ -23,7 +33,7 @@ const useRegistrationState = () => {
   return {
     loading,
     jobs,
-    id
+    id,getJobdetails
   };
 };
 

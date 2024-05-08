@@ -11,8 +11,8 @@ import { AUTH } from "../routes/routes";
 
 const service = axios.create({
   // baseURL: `${process.env.REACT_APP_BASE_URL}`,
-  // baseURL: "http://localhost:3002/api/1.0/",
-  baseURL: "https://3season-backend-production.up.railway.app/api/1.0/",
+  baseURL: "http://localhost:3002/api/1.0/",
+  // baseURL: "https://3season-backend-production.up.railway.app/api/1.0/",
   timeout: 60000,
 });
 
@@ -23,6 +23,7 @@ const setupInterceptors = (store: Store) => {
       config.headers.Accept = "application/json";
       config.headers["Device-Id"] = await getDeviceId();
       config.headers["App-Type"] = "web";
+      
       if (token) {
         //JWT token added to the header
         config.headers.Authorization = `Bearer ${token}`;

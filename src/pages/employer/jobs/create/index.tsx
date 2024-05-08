@@ -146,9 +146,9 @@ function PostJobs() {
                 />
                
               </span>
-              <span className="flex flex-col gap-1 w-full  md:grid-cols-2">
+              {/* <span className="flex flex-col gap-1 w-full  md:grid-cols-2">
                 <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
-                  Job Loacation <span className="text-red-500">*</span>
+                  Place <span className="text-red-500">*</span>
                 </label>
                 <input
                   required
@@ -160,7 +160,7 @@ function PostJobs() {
                   onChange={handleChange}
                 />
                
-              </span>
+              </span> */}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <span className="flex flex-col gap-1 w-full">

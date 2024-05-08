@@ -9,9 +9,11 @@ const useEmplyerDetails = () => {
     const { loading } = useAppSelector((state) => state.user);
     let { id } = useParams();
     const [employerData, setEmployerData] = useState<any>();
+    const [employerJobs, setEmployerJobs] = useState<any>();
     const getJobdetails = async () => {
       const { data } = await service.get(API.GET_EMPLOYER.replace(":id",id as string));
-      setEmployerData(data?.data);
+      setEmployerData(data?.data?.user);
+      setEmployerJobs(data?.data?.jobs);
     };
   
     useEffect(() => {
@@ -20,6 +22,7 @@ const useEmplyerDetails = () => {
     return {
       loading,
       employerData,
+      employerJobs
     };
   };
 export default useEmplyerDetails;

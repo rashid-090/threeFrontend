@@ -144,7 +144,7 @@ function EmployeeData() {
                         <TableCell>{employee?.itemId?.title}</TableCell>
                         <TableCell>
                           <NavLink
-                            to={`/superAdmin/employee-details/${employee?._id}`}
+                            to={`/superAdmin/employee-details/${employee?.userId?._id}`}
                             className="text-xs tracking-widest uppercase font-light hover:text-blue-400 cursor-pointer duration-200"
                           >
                             view

@@ -112,6 +112,8 @@ enum API {
   UPDATE_EMPLOYEE_PROFILE = '/employee/resume',
   GET_EMPLOYEE_PROFILE = "/account/profile",
   APPLY_JOB = "/employee/job",
+  LIST_PRIVET_JOB_DETAILS="/employee/job/:id",
+
 
   // employer APIs
   CREATE_JOB="/employer/job",

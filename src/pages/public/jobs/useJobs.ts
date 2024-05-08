@@ -6,8 +6,13 @@ import ROLES from "../../../config/roles";
 import useUrlParams from "../../../hooks/useUrlParams";
 import { useDebouncedCallback } from "use-debounce";
 import { DELAYTIME } from "../../../config/constants";
+import { useLocation } from 'react-router-dom';
 
 const useRegistrationState = () => {
+  // const location = useLocation();
+  // const { jobitem, location: stateLocation } = location.state || {};
+  // console.log(jobitem,stateLocation);
+  
   const { loading } = useAppSelector((state) => state.user);
   const { searchParams, resetParamsUrl, urlParamsHandler } = useUrlParams();
   let search = searchParams.get("search") || "";
@@ -26,9 +31,9 @@ const useRegistrationState = () => {
     () => getEmployerList(),
     DELAYTIME
   );
-  useEffect(() => {
-    getEmployerList();
-  }, []);
+  // useEffect(() => {
+  //   getEmployerList();
+  // }, []);
 
   const [filteredJobs, setFilteredJobs] = useState<any>();
   const [page, setPage] = useState(0);

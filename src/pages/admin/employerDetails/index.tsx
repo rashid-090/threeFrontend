@@ -23,32 +23,31 @@ import { load } from "@fingerprintjs/fingerprintjs";
 const theme = createTheme();
 
 function EmployerDetail() {
-  const { employerData } = useEmployer();
+  const { employerData, employerJobs } = useEmployer();
   console.log(employerData);
-  
+
   function createMarkup() {
-    return {__html: employerData?.description || loadingText};
+    return { __html: employerData?.description || loadingText };
   }
 
-  let loadingText = "Not available"
-
+  let loadingText = "Not available";
 
   function createData(
     name: string,
     calories: number,
     fat: number,
     carbs: number,
-    protein: number,
+    protein: number
   ) {
     return { name, calories, fat, carbs, protein };
   }
-  
+
   const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
+    createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+    createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+    createData("Eclair", 262, 16.0, 24, 6.0),
+    createData("Cupcake", 305, 3.7, 67, 4.3),
+    createData("Gingerbread", 356, 16.0, 49, 3.9),
   ];
 
   return (
@@ -70,19 +69,18 @@ function EmployerDetail() {
             <div className="flex flex-col gap-1">
               <span className="flex items-center gap-2 text-2xl tracking-wide">
                 <BsBuildingsFill />
-                <h1 className="font-bold">{employerData?.companyName || loadingText}</h1>
+                <h1 className="font-bold">
+                  {employerData?.companyName || loadingText}
+                </h1>
               </span>
               <span className="flex gap-2 items-center text-base">
                 <FaUserTie />
                 <p>{employerData?.fullName || loadingText}</p>
               </span>
-              <p className="text-xs font-medium">
-               
-              </p>
-              <a  className="text-xs font-normal lowercase">
-              {employerData?.webUrl || loadingText}
+              <p className="text-xs font-medium"></p>
+              <a className="text-xs font-normal lowercase">
+                {employerData?.webUrl || loadingText}
               </a>
-              
             </div>
             <img
               className="h-28 w-28 object-cover"
@@ -96,39 +94,41 @@ function EmployerDetail() {
             <p className="text-sm">{employerData?.address || loadingText}</p>
             <h3 className="text-2xl font-semibold">More Details</h3>
             <p className="text-sm" dangerouslySetInnerHTML={createMarkup()}></p>
-            
           </div>
           {/* applied jobs */}
           <div className="pt-10">
             <h2 className="text-2xl font-semibold">Jobs Posted</h2>
           </div>
-         <div className="pt-2 w-[60%]">
-          <ThemeProvider theme={theme}>
-            <TableContainer component={Paper}>
-              <Table>
-                <TableHead>
-                  <TableRow className=" bg-zinc-100">
-                    <TableCell className="">Job Title</TableCell>
-                    <TableCell className="">Posted Date</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
+          <div className="pt-2 w-[60%]">
+            <ThemeProvider theme={theme}>
+              <TableContainer component={Paper}>
+                <Table>
+                  <TableHead>
+                    <TableRow className=" bg-zinc-100">
+                      <TableCell className="">Job Title</TableCell>
+                      <TableCell className="">Posted Date</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {employerJobs?.Products?.length > 0 ? employerJobs?.Products?.map((item:any)=>{
+                      return(
                       <TableRow>
-                        <TableCell>Designer</TableCell>
-                        <TableCell>10-03-2024</TableCell>
+                        <TableCell>{item?.title}</TableCell>
+                        <TableCell>{new Date(item?.createdAt).toLocaleDateString()}</TableCell>
                       </TableRow>
-                      <TableRow>
-                        <TableCell>Developer</TableCell>
-                        <TableCell>10-03-2024</TableCell>
-                      </TableRow>
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </ThemeProvider>
-         </div>
-          
+                      )
+                    })
+                      
+                     : 
+                      "No jobs"
+                    }
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </ThemeProvider>
+          </div>
+
           {/* applied jobs */}
-         
         </div>
       </section>
     </>
