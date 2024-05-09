@@ -62,6 +62,10 @@ function Jobsdetails() {
 
   let loadingText = 'Loading...'
 
+  let placesArray = jobs?.location?.split(',').map((place:any) => place?.trim());
+
+  // Join the places array back into a string with spaces between each place
+  let formattedloctaion = placesArray?.join(', ');
   return (
     <>
       <div>
@@ -174,7 +178,7 @@ function Jobsdetails() {
               <div>
                 <ul className="text-sm flex  flex-col gap-1 text-gray-700 capitalize">
                   <li>
-                    <span className="font-bold text-gray-600">Location</span> : {jobs?.location || loadingText}
+                    <span className="font-bold text-gray-600">Location</span> : {formattedloctaion || loadingText}
                   </li>
                   <li>
                     <span className="font-bold text-gray-600">Salary</span> : {jobs?.salaryOffer || loadingText}

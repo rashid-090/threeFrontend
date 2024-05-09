@@ -118,10 +118,9 @@ function PostJobs() {
 
               <span className="flex flex-col gap-1 w-full  md:grid-cols-2">
                 <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
-                  State <span className="text-red-500">*</span>
+                  State
                 </label>
                 <input
-                  required
                   className="border-2 border-gray-200 px-3 py-2 font-normal text-sm"
                   type="text"
                   placeholder="Enter State"
@@ -179,10 +178,10 @@ function PostJobs() {
                 </span>
                 <span className="flex flex-col gap-1 w-full">
                   <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
-                    Close Date <span className="text-red-500">*</span>
+                    Close Date 
                   </label>
                   <input
-                  required
+               
                     className="border-2 border-gray-200 px-3 py-2 font-normal text-sm"
                     type="date"
                     placeholder="Enter Location"
@@ -210,10 +209,9 @@ function PostJobs() {
                 </span>
                 <span className="flex flex-col gap-1 w-full">
                   <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
-                    gender <span className="text-red-500">*</span>
+                    gender 
                   </label>
                   <Select
-                    required
                     className="w-full text-sm font-normal text-gray-500"
                     value={selectedGenderOption}
                     onChange={handleGenderTypeChange}

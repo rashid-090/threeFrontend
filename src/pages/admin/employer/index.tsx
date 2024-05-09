@@ -39,6 +39,7 @@ function EmployerData() {
   } = useEmployer();
   // Sample employee data
 
+  
   return (
     <ThemeProvider theme={theme}>
       <div className="w-11/12 mx-auto m-10 flex flex-col gap-3">
@@ -81,13 +82,14 @@ function EmployerData() {
                 </TableRow>
               </TableHead>
               <TableBody>
+                
                 {(rowsPerPage > 0
                   ? filteredEmployees?.slice(
                       page * rowsPerPage,
                       page * rowsPerPage + rowsPerPage
                     )
                   : filteredEmployees
-                )?.map((employee: any) => {
+                )?.reverse()?.map((employee: any) => {
                   const isItemSelected = isSelected(employee._id);
                   return (
                     <TableRow
@@ -98,7 +100,7 @@ function EmployerData() {
                       <TableCell>
                         <Checkbox checked={isItemSelected} />
                       </TableCell>
-                      <TableCell>{employee?.fullName || Demotitle}</TableCell>
+                      <TableCell>{employee?.fullName || Demotitle}<p className="text-xs">username: {employee?.name || Demotitle}</p></TableCell>
                       <TableCell>{employee?.companyName || Demotitle}</TableCell>
                       <TableCell>{employee?.email || Demotitle}</TableCell>
                       <TableCell>
@@ -112,6 +114,8 @@ function EmployerData() {
                     </TableRow>
                   );
                 })}
+
+                {!filteredEmployees || filteredEmployees.length <= 0 ? <div className="p-5">Loading...</div> : null }
               </TableBody>
             </Table>
           </TableContainer>

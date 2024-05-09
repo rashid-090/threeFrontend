@@ -82,9 +82,9 @@ function Home() {
               and careers alike.
             </p>
             {/* <Link to="/jobs"> */}
-              <button className="mt-2 border w-fit border-1 px-16 py-2 uppercase hover:bg-white duration-300 hover:text-black text-sm tracking-widest " onClick={()=>navigate("/jobs")}>
+              {/* <button className="mt-2 border w-fit border-1 px-16 py-2 uppercase hover:bg-white duration-300 hover:text-black text-sm tracking-widest " onClick={()=>navigate("/jobs")}>
                 find jobs
-              </button>
+              </button> */}
             {/* </Link> */}
           </div>
           <div className="basis-1/4 relative overflow-hidden">

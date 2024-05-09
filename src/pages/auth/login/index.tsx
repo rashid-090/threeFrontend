@@ -89,8 +89,8 @@ function Login() {
             </div>
             {/* register button */}
             <div className=" text-blue-950">
-              <p className="text-xs  lowercase font-medium" style={{cursor:"pointer"}} onClick={() => navigate("/auth/forgot")}>
-                Forget Password
+              <p className="text-xs font-medium mb-5 text-right hover:text-slclr capitalize" style={{cursor:"pointer"}} onClick={() => navigate("/auth/forgot")}>
+                Forget Password ?
               </p>
               <p className="text-xs  lowercase font-medium">
                 If you don't have an account...

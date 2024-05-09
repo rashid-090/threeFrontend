@@ -29,13 +29,13 @@ function Login() {
                 />
               </Link>
               <h4 className="text-xl font-bold tracking-wider capitalize text-blue-950">
-                Forget
+                Reset Password
               </h4>
               
-              <form className="mt-5 flex flex-col gap-4" onSubmit={formik?.handleSubmit}>
+              <form className="mt-3 flex flex-col gap-4" onSubmit={formik?.handleSubmit}>
                 <div className="flex flex-col gap-1">
-                  <label className="text-sm text-gray-600 font-semibold">
-                    Email Address
+                  <label className="text-sm text-gray-600 font-medium capitalize">
+                  registered Email Address
                   </label>
                   <input
                     className="bg-gray-100 p-2 w-full text-sm"

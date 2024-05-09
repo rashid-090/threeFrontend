@@ -15,6 +15,8 @@ function EmployeeDetail() {
     window.history.back();
   };
   const {employeeData} = useEmployeeData();
+  // console.log(employeeData);
+  
 
   function createMarkup() {
     return {__html: employeeData?.description || loadingText};

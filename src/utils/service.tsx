@@ -11,8 +11,8 @@ import { AUTH } from "../routes/routes";
 
 const service = axios.create({
   // baseURL: `${process.env.REACT_APP_BASE_URL}`,
-  baseURL: "http://localhost:3002/api/1.0/",
-  // baseURL: "https://3season-backend-production.up.railway.app/api/1.0/",
+  // baseURL: "http://localhost:3002/api/1.0/",
+  baseURL: "https://threebackendfinal-production.up.railway.app/api/1.0/",
   timeout: 60000,
 });
 

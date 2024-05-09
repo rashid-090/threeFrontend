@@ -45,40 +45,101 @@ export const BannerData=[
     },
 ]
 
-
 export const CategoriesData=[
     {
-        title:'Accounting',
-        opening: 2
+        title:'Hospitality',
+
+    },
+    {
+        title:'Nursing',
+
+    },
+    {
+        title:'Medical & HealthCare',
+
+    },
+    {
+        title:'Banking & Finance',
+
     },
     {
         title:'Digital Marketing',
-        opening: 3
+
     },
     {
-        title:'Banking',
-        opening: 10
+        title:`IT & Software`,
+
     },
     {
-        title:'IT Consultant',
-        opening: 1
+        title:`Finance`,
+
     },
     {
-        title:'Developer',
-        opening: 5 
+        title:`Journalist`,
+
     },
     {
-        title:'Teacher',
-        opening: 6
+        title:`Media & Entertaiment`,
+
     },
     {
-        title:'Driver',
-        opening: 21
+        title:`Business`,
+
     },
     {
-        title:'Software Engineer',
-        opening: 52
+        title:`Education & Training`,
+
     },
+    {
+        title:`Accountant`,
+
+    },
+    {
+        title:`Human Resources`,
+
+    },
+    {
+        title:`Real estate agent`,
+
+    },
+    {
+        title:`Administrative`,
+
+    },
+    {
+        title:`Airline`,
+
+    },
+    {
+        title:`Architecture & Design`,
+
+    },
+    {
+        title:`Journalist`,
+
+    },
+    {
+        title:`Engineering`,
+
+    },
+    {
+        title:`Corporate Professionals`,
+
+    },
+    {
+        title:`Beauty & Fashion`,
+
+    },
+    {
+        title:`BPO & Customer Service`,
+
+    },
+    {
+        title:`Developer`,
+
+    },
+ 
+   
 ]
 
 export const BlogData=[

@@ -80,12 +80,13 @@ const useRegistrationState = () => {
       console.log(values);
       const obj = {
         ...values,
-        description: value,
+        closeDate: value || " ",
+        description: value || " ",
         catogories:selectedcatgOption,
         jobType:selectedJobTypeOption?.value,
-        gender:selectedGenderOption?.value,
+        gender:selectedGenderOption?.value || " ",
         qualification:selectedQualificationOption,
-        location:`${values?.country},${values?.state},${values?.district}`
+        location:`${values?.country},${values?.state || " "},${values?.district}`
       };
       const { data } = await service.post(API.CREATE_JOB, obj);
       if (data?.statusCode === 200) {
@@ -103,10 +104,29 @@ const useRegistrationState = () => {
   }
 
   const catgoptions = [
+    { value: "Hospitality", label: "Hospitality" },
+    { value: "Medical & HealthCare", label: "Medical & HealthCare" },
     { value: "Accounting", label: "Accounting" },
-    { value: "Banking", label: "Banking" },
+    { value: "Banking & Finance", label: "Banking & Finance" },
     { value: "Digital Marketing", label: "Digital Marketing" },
-    { value: "IT", label: "IT" },
+    { value: "IT & Software", label: "IT & Software" },
+    { value: "Finance", label: "Finance" },
+    { value: "Journalist", label: "Journalist" },
+    { value: "Media & Entertaiment", label: "Media & Entertaiment" },
+    { value: "Business", label: "Business" },
+    { value: "Education & Training", label: "Education & Training" },
+    { value: "Accountant", label: "Accountant" },
+    { value: "Human Resources", label: "Human Resources" },
+    { value: "Real estate agent", label: "Real estate agent" },
+    { value: "Administrative", label: "Administrative" },
+    { value: "Agriculture", label: "Agriculture" },
+    { value: "Airline", label: "Airline" },
+    { value: "Architecture & Design", label: "Architecture & Design" },
+    { value: "Journalist", label: "Journalist" },
+    { value: "Engineering", label: "Engineering" },
+    { value: "Corporate Professionals", label: "Corporate Professionals" },
+    { value: "Beauty & Fashion", label: "Beauty & Fashion" },
+    { value: "BPO & Customer Service", label: "BPO & Customer Service" },
     { value: "Others", label: "Others" },
   ];
   const jobtypeoptions = [
@@ -118,7 +138,7 @@ const useRegistrationState = () => {
   const genderoptions = [
     { value: "Male", label: "Male" },
     { value: "Female", label: "Female" },
-    { value: "Other", label: "Other" },
+    { value: "Either", label: "Either" },
   ];
   const qualificationoptions = [
     { value: "Certificate", label: "Certificate" },

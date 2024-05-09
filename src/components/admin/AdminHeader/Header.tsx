@@ -51,7 +51,7 @@ function Menu() {
     <>
       <nav className="bg-white shadow-md p-2 sticky top-0 left-0 adminnavbar">
         <div className="w-11/12 mx-auto bg-red flex gap-x-16 items-center justify-between">
-          <NavLink to="/">
+          <NavLink to="/superAdmin/dashboard">
             <img className="h-8 lg:h-10" src={LogoBlack} alt="logo" />
           </NavLink>
           <div className="hidden lg:flex  items-center justify-between w-full gap-20 text-gray-600 capitalize text-base font-semibold">

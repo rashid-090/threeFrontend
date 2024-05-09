@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   Checkbox,
@@ -19,18 +19,45 @@ import { IoArrowBackCircleSharp } from "react-icons/io5";
 import useEmployer from "./useEmployer";
 import { ProfileLogo } from "../../../assets";
 import { load } from "@fingerprintjs/fingerprintjs";
+import { RiCloseCircleLine } from "react-icons/ri";
+
 
 const theme = createTheme();
 
 function EmployerDetail() {
+  interface EmployerJob {
+    title: string;
+    location: string;
+    gender: string;
+    experience: string;
+    closeDate: string;
+    qualification: string;
+    salaryOffer: string;
+  }
+  
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedJob, setSelectedJob] = useState<EmployerJob | null>(null);// State to hold the selected job details
+
+  const openModal = (job:any) => {
+    setSelectedJob(job); // Set the selected job details when opening the modal
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedJob(null); // Reset selected job details when closing the modal
+    setIsOpen(false);
+  };
+
   const { employerData, employerJobs } = useEmployer();
-  console.log(employerData);
+  console.log(employerJobs);
 
   function createMarkup() {
     return { __html: employerData?.description || loadingText };
   }
 
   let loadingText = "Not available";
+
+
 
   function createData(
     name: string,
@@ -107,14 +134,16 @@ function EmployerDetail() {
                     <TableRow className=" bg-zinc-100">
                       <TableCell className="">Job Title</TableCell>
                       <TableCell className="">Posted Date</TableCell>
+                      <TableCell>Action</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {employerJobs?.Products?.length > 0 ? employerJobs?.Products?.map((item:any)=>{
+                    {employerJobs?.Products?.length > 0 ? employerJobs?.Products?.reverse()?.map((item:any)=>{
                       return(
                       <TableRow>
                         <TableCell>{item?.title}</TableCell>
                         <TableCell>{new Date(item?.createdAt).toLocaleDateString()}</TableCell>
+                        <TableCell className="cursor-pointer" onClick={() => openModal(item)}>view</TableCell>
                       </TableRow>
                       )
                     })
@@ -130,6 +159,52 @@ function EmployerDetail() {
 
           {/* applied jobs */}
         </div>
+        {/* modal */}
+        <div>
+
+      
+      {/* Modal */}
+      {isOpen && selectedJob && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="absolute inset-0 bg-[black] bg-opacity-70 backdrop-blur-[2px] "></div>
+          <div className="bg-white rounded-2xl p-8 w-[90%] max-h-[90vh] overflow-y-scroll z-50 pt-10 relative xl:p-10">
+            {/* Details */}
+             <div className="flex flex-col gap-3">
+                <div className="flex flex-col md:flex-row items-center gap-5">
+                  <p className="font-medium md:basis-1/12">Job Title</p>
+                  <h2 className="text-xl font-bold md:basis-11/12">{selectedJob.title}</h2>
+                </div>
+                <div className="flex flex-col md:flex-row items-center gap-5">
+                  <p className="font-medium md:basis-1/12">Close Date</p>
+                  <h2 className="text-xl font-bold md:basis-11/12">{selectedJob.closeDate}</h2>
+                </div>
+                <div className="flex flex-col md:flex-row items-center gap-5">
+                  <p className="font-medium md:basis-1/12">Location</p>
+                  <h2 className="text-xl font-bold md:basis-11/12">{selectedJob.location}</h2>
+                </div>
+                <div className="flex flex-col md:flex-row items-center gap-5">
+                  <p className="font-medium md:basis-1/12">Gender</p>
+                  <h2 className="text-xl font-bold md:basis-11/12">{selectedJob.gender}</h2>
+                </div>
+                <div className="flex flex-col md:flex-row items-center gap-5">
+                  <p className="font-medium md:basis-1/12">Experience</p>
+                  <h2 className="text-xl font-bold md:basis-11/12">{selectedJob.experience}</h2>
+                </div>
+                <div className="flex flex-col md:flex-row items-center gap-5">
+                  <p className="font-medium md:basis-1/12">salary Offer</p>
+                  <h2 className="text-xl font-bold md:basis-11/12">{selectedJob.salaryOffer}</h2>
+                </div>
+
+             </div>
+            {/* Details */}
+            <button onClick={closeModal} className="text-black hover:text-slclr absolute top-3 right-3 text-2xl cursor-pointer">
+              <RiCloseCircleLine/>
+            </button>
+          </div>
+        </div>
+      )}
+      
+    </div>
       </section>
     </>
   );

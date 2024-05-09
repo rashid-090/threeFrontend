@@ -76,7 +76,7 @@ function EmployeeData() {
                       page * rowsPerPage + rowsPerPage
                     )
                   : filteredEmployees
-                )?.map((employee: any) => {
+                )?.reverse()?.map((employee: any) => {
                   const isItemSelected = isSelected(employee._id);
                   return (
                     <>
@@ -89,7 +89,7 @@ function EmployeeData() {
                       <TableCell>
                         <Checkbox checked={isItemSelected} />
                       </TableCell>
-                      <TableCell>{employee?.name || Demotitle}</TableCell>
+                      <TableCell>{employee?.fullName || Demotitle}<p className="text-xs">username: {employee?.name || Demotitle}</p></TableCell>
                       <TableCell>{employee?.phoneNumber || Demotitle}</TableCell>
                       <TableCell>{employee?.country || Demotitle}, {employee.city}</TableCell>
                       <TableCell>{employee?.workExperince || Demotitle}</TableCell>
@@ -105,6 +105,8 @@ function EmployeeData() {
                     </>
                   );
                 })}
+                                {!filteredEmployees || filteredEmployees.length <= 0 ? <div className="p-5">Loading...</div> : null }
+
               </TableBody>
             </Table>
           </TableContainer>

@@ -39,7 +39,7 @@ const Jobsearch: React.FC<JobsearchProps> = () => {
               {/* <label className="text-xs font-medium text-gray-500">
                 Search keywords e.g. web design
               </label> */}
-              <IoIosSearch className="absolute top-3 left-1 text-gray-400" />
+              <IoIosSearch className="absolute top-2.5 left-2 text-gray-400" />
             </div>
             <div className="w-full relative md:col-span-2">
               <input
@@ -49,11 +49,11 @@ const Jobsearch: React.FC<JobsearchProps> = () => {
                 value={location}
                 onChange={(e)=>setLocation(e.target.value)}
               />
-              <IoLocationOutline className="absolute top-3 left-1 text-gray-400" />
+              <IoLocationOutline className="absolute top-2.5 left-2 text-gray-400" />
             </div>
             <NavLink to={`/jobs?search=${job || ''}&search2=${location || ''}`}>
               
-            <button disabled={!job} className="bg-slclr font-PoppinsMedium tracking-wider hover:bg-slclrhr duration-200 rounded-3xl uppercase text-white w-20% h-fit px-4 xl:px-8 p-[.4rem] shadow-md" 
+            <button disabled={!job} className={`bg-slclr ${!job ? 'cursor-not-allowed' : 'cursor-pointer'} font-PoppinsMedium tracking-wider hover:bg-slclrhr duration-200 rounded-3xl uppercase text-white w-20% h-fit px-4 xl:px-8 p-[.4rem] shadow-md`} 
             // onClick={()=>navigate(`/jobs?search=${job || ''}&search2=${location || ''}`, { state: { jobitem:job, location } })}
             
             >

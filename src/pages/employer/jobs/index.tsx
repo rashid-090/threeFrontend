@@ -169,7 +169,7 @@ function ManageJobs() {
                     </TableRow>
                   );
                 })}
-                {filteredEmployees && filteredEmployees.length > 0 ? null : (<TableCell>Loading...</TableCell>)}
+                {filteredEmployees && filteredEmployees.length > 0 ? null : (<TableCell>no jobs posted...</TableCell>)}
               </TableBody>
             </Table>
           </TableContainer>

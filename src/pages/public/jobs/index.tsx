@@ -29,7 +29,16 @@ function Jobs() {
   const navigate = useNavigate();
  
   const { jobs,delayedSearch, searchParams, urlParamsHandler } = useJobs();
+  const toLocalDate = (utcDateString:any) => {
+    const date = new Date(utcDateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
 
+  
   return (
     <ThemeProvider theme={theme}>
       <section
@@ -52,7 +61,7 @@ function Jobs() {
               {/* <label className="text-xs font-medium text-gray-400">
                 Search keywords e.g. web design
               </label> */}
-              <IoIosSearch className="absolute top-3 left-1 text-gray-400" />
+              <IoIosSearch className="absolute top-2.5 left-2 text-gray-400" />
             </div>
             {/* <div className='w-full relative'>
                     <Select className='w-full' value={selectedOption} onChange={handleChange} options={options} isSearchable={true} placeholder="Search Categories"/>
@@ -69,7 +78,7 @@ function Jobs() {
                   delayedSearch();
                 }}
               />
-              <IoLocationOutline className="absolute top-3 left-1 text-gray-400" />
+              <IoLocationOutline className="absolute top-2.5 left-2 text-gray-400" />
             </div>
             {/* <button className="bg-primaryclr hover:bg-secondaryclr duration-200 uppercase text-white w-20% h-fit px-5 lg:px-10 p-[.4rem] shadow-md rounded-sm">
               Find Job
@@ -82,36 +91,43 @@ function Jobs() {
       <section className="font-PoppinsRegular w-11/12 lg:w-9/12 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-3 py-5">
           {/* filters */}
-          <div className="px-3 py-5 bg-[#f5f5f5] h-fit w-full text-gray-700">
-            <form className=" w-full flex flex-col gap-5">
+          <div className="px-3 py-5 xl:pb-40 bg-[#f5f5f5] h-fit w-full text-gray-700">
+            <form className=" w-full flex flex-col gap-6">
               {/*  */}
-              <div className="relative w-full">
-                <input
-                  className="rounded-3xl placeholder:text-sm text-sm w-full py-2 p-1 border-2 pl-6 border-gray-200"
-                  type="search"
-                  placeholder="Search Keywords"
-                  value={searchParams.get("search3") || ""}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    urlParamsHandler("search3", e?.target?.value);
-                    delayedSearch();
-                  }}
-                />
-                <IoIosSearch className="absolute top-3 left-1.5 text-gray-400" />
+              
+              <div>
+                <h4 className="text-base  font-RedHatDisplayMedium pb-2">Search Keyword</h4>
+                <div className="relative w-full">
+                  <input
+                    className="rounded-3xl text-sm w-full py-2 p-1 border-2 pl-6 border-gray-200 placeholder:capitalize placeholder:text-xs"
+                    type="search"
+                    placeholder="job, job type.."
+                    value={searchParams.get("search3") || ""}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      urlParamsHandler("search3", e?.target?.value);
+                      delayedSearch();
+                    }}
+                  />
+                  <IoIosSearch className="absolute top-3 left-1.5 text-gray-400" />
+                </div>
               </div>
               {/*  */}
+             <div>
+             <h4 className="text-base capitalize font-RedHatDisplayMedium pb-2">Search Location</h4>
               <div className="relative w-full">
-                <input
-                  className="rounded-3xl placeholder:text-sm text-sm w-full py-2 p-1 border-2 pl-6 border-gray-200"
-                  type="search"
-                  placeholder="Search Location"
-                  value={searchParams.get("search1") || ""}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    urlParamsHandler("search1", e?.target?.value);
-                    delayedSearch();
-                  }}
-                />
-                <IoIosSearch className="absolute top-3 left-1.5 text-gray-400" />
-              </div>
+                  <input
+                    className="rounded-3xl placeholder:text-xs text-sm w-full py-2 p-1 border-2 pl-6 border-gray-200"
+                    type="search"
+                    placeholder="Search Location"
+                    value={searchParams.get("search1") || ""}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      urlParamsHandler("search1", e?.target?.value);
+                      delayedSearch();
+                    }}
+                  />
+                  <IoIosSearch className="absolute top-3 left-1.5 text-gray-400" />
+                </div>
+             </div>
               {/*  */}
               {/* <div className="w-full relative">
                 <Select
@@ -125,7 +141,7 @@ function Jobs() {
               </div> */}
               {/*  */}
 
-              <div className="hidden lg:block">
+              <div className="hidden">
                 <h4 className="text-xs pb-2 uppercase font-PoppinsMedium tracking-wide">
                   job type
                 </h4>
@@ -157,7 +173,7 @@ function Jobs() {
                 </div>
               </div>
               {/*  */}
-              <div className="hidden lg:block">
+              <div className="hidden">
                 <h4 className="text-xs pb-2 uppercase font-semibold tracking-wide">
                   Experience Level
                 </h4>
@@ -203,7 +219,7 @@ function Jobs() {
             {jobs && jobs.length > 0 ? 
             (
               <>
-              {jobs?.map((data: any, i: any) => {
+              {jobs?.reverse().map((data: any, i: any) => {
               const truncatedDescription = data.description?.slice(0, 150);
               return (
                 <div
@@ -223,12 +239,13 @@ function Jobs() {
                         {data.title}
                       </h1>
                       <span className=" flex items-center gap-3 text-xs font-bold tracking-wide">
-                        <p>{new Date(data.createdAt).toLocaleDateString()}</p>-
-                        <p>{new Date(data.closeDate).toLocaleDateString()}</p>
+                        <p>{toLocalDate(data?.createdAt)}</p>
+
+                      
                       </span>
                       <span className="flex flex-col md:flex-row items-center gap-3 md:gap-5">
                         <p className="text-xs font-bold capitalize">
-                          Location : {data.location}
+                          Location : {data?.location.split(',').join(', ')}
                         </p>
                         <p className="text-xs font-bold capitalize">
                         Job type : {data.jobType}
@@ -258,7 +275,7 @@ function Jobs() {
             ) :
             (
               <>
-                <p>No Datas Found...!</p>
+                <p>No Jobs Found...!</p>
       
 
               </>

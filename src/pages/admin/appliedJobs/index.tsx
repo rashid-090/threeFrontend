@@ -37,6 +37,7 @@ function EmployeeData() {
   } = useEmployer();
 
   const [selectedEmployees, setSelectedEmployees] = useState<number[]>([]);
+console.log(selectedEmployees);
 
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
@@ -84,7 +85,7 @@ function EmployeeData() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="w-11/12 mx-auto m-10 flex flex-col gap-3">
+      <div className="w-11/12 mx-auto m-10 flex flex-col gap-3 pb-20">
         <div className="flex gap-2 md:gap-5">
           <input
             className="rounded-full px-4 w-full p-2 bg-transparent border-2 border-gray-100 capitalize placeholder:text-white"
@@ -128,7 +129,7 @@ function EmployeeData() {
                       page * rowsPerPage + rowsPerPage
                     )
                   : filteredEmployees
-                )?.map((employee: any) => {
+                )?.reverse()?.map((employee: any) => {
                   const isItemSelected = isSelected(employee.id);
                   return (
                     <>

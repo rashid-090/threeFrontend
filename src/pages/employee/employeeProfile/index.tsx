@@ -78,6 +78,8 @@ function EmployeeProfile() {
     }
     console.log(data?.data?.statusCode);
   };
+
+  
   return (
     <>
       <div className="lg:col-span-3 mt-12">
@@ -285,7 +287,7 @@ function EmployeeProfile() {
               />
             </span>
             {/*  */}
-            <span className="flex flex-col gap-1 w-full">
+            <span className="flex flex-col gap-1 w-full lg:col-span-2">
               <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
                 Expected Salary <span className="text-red-500">*</span>
               </label>
@@ -337,7 +339,7 @@ function EmployeeProfile() {
               <ReactQuill
                 className="pt-1"
                 theme="snow"
-                value={values?.description || value}
+                value={value || values?.description}
                 onChange={setValue}
               />
             </div>
