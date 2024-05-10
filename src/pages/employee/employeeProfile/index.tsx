@@ -195,7 +195,6 @@ function EmployeeProfile() {
                required
                 className="border-2 border-gray-200 px-3 py-1.5 font-normal text-gray-500 text-sm"
                 type="date"
-                placeholder="Enter email"
                 name="dob"
                 value={values?.dob}
                 onChange={handleChange}
