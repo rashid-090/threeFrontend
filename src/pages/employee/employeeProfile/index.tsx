@@ -39,6 +39,29 @@ const catgoptions = [
     { value: "BPO & Customer Service", label: "BPO & Customer Service" },
     { value: "Others", label: "Others" },
 ];
+const currencyoptions = [
+  { value: "United States Dollar (USD)", label: "United States Dollar (USD)" },
+  { value: "Euro (EUR)", label: "Euro (EUR)" },
+  { value: "British Pound Sterling (GBP)", label: "British Pound Sterling (GBP)" },
+  { value: "Japanese Yen (JPY)", label: "Japanese Yen (JPY)" },
+  { value: "Canadian Dollar (CAD)", label: "Canadian Dollar (CAD)" },
+  { value: "Australian Dollar (AUD)", label: "Australian Dollar (AUD)" },
+  { value: "Swiss Franc (CHF)", label: "Swiss Franc (CHF)" },
+  { value: "Chinese Yuan (CNY)", label: "Chinese Yuan (CNY)" },
+  { value: "Indian Rupee (INR)", label: "Indian Rupee (INR)" },
+  { value: "Brazilian Real (BRL)", label: "Brazilian Real (BRL)" },
+  { value: "Russian Ruble (RUB)", label: "Russian Ruble (RUB)" },
+  { value: "South Korean Won (KRW)", label: "South Korean Won (KRW)" },
+  { value: "Mexican Peso (MXN)", label: "Mexican Peso (MXN)" },
+  { value: "South African Rand (ZAR)", label: "South African Rand (ZAR)" },
+  { value: "Saudi Riyal (SAR)", label: "Saudi Riyal (SAR)" },
+  { value: "Turkish Lira (TRY)", label: "Turkish Lira (TRY)" },
+  { value: "Hong Kong Dollar (HKD)", label: "Hong Kong Dollar (HKD)" },
+  { value: "Singapore Dollar (SGD)", label: "Singapore Dollar (SGD)" },
+  { value: "New Zealand Dollar (NZD)", label: "New Zealand Dollar (NZD)" },
+  { value: "Norwegian Krone (NOK)", label: "Norwegian Krone (NOK)" },
+  { value: "Others", label: "Others" },
+];
 
 function EmployeeProfile() {
   const {
@@ -280,14 +303,14 @@ function EmployeeProfile() {
               required
                 className="border-2 border-gray-200 px-3 py-2 font-normal text-gray-500 text-sm"
                 type="text"
-                placeholder="10 $"
+                placeholder="100"
                 name="Csalary"
                 value={values?.Csalary}
                 onChange={handleChange}
               />
             </span>
             {/*  */}
-            <span className="flex flex-col gap-1 w-full lg:col-span-2">
+            <span className="flex flex-col gap-1 w-full">
               <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
                 Expected Salary <span className="text-red-500">*</span>
               </label>
@@ -295,11 +318,23 @@ function EmployeeProfile() {
               required
                 className="border-2 border-gray-200 px-3 py-2 font-normal text-gray-500 text-sm"
                 type="text"
-                placeholder="20 $"
+                placeholder="200"
                 name="Esalary"
                 value={values?.Esalary}
                 onChange={handleChange}
               />
+            </span>
+            <span className="flex flex-col gap-1 w-full">
+              <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
+                Currency
+              </label>
+              <Select
+                    
+                    className="w-full text-sm font-normal text-gray-500"
+                    options={currencyoptions}
+                    isSearchable={true}
+                    placeholder="Select Currency"
+                  />
             </span>
             {/*  */}
             <span className="flex flex-col gap-1 w-full lg:col-span-3">
@@ -342,6 +377,10 @@ function EmployeeProfile() {
                 value={value || values?.description}
                 onChange={setValue}
               />
+            </div>
+
+            <div className="md:col-span-3">
+              <h4>Email  cv / resume to : <a href="mailto:recruitments@threeseasonsglobal.com" target="_blank" className="pl-2 hover:text-slclr hover:underline duration-150">Recruitments@threeseasonsglobal.com</a></h4>
             </div>
 
             <hr className="md:col-span-3 my-5" />

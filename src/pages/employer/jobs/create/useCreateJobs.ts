@@ -77,11 +77,11 @@ const useRegistrationState = () => {
     { setSubmitting }: FormikHelpers<ValuesType>
   ) {
     try {
-      console.log(values);
+      // console.log(values);
       const obj = {
         ...values,
-        closeDate: value || " ",
         description: value || " ",
+        salaryOffer: value || " ",
         catogories:selectedcatgOption,
         jobType:selectedJobTypeOption?.value,
         gender:selectedGenderOption?.value || " ",
@@ -139,16 +139,51 @@ const useRegistrationState = () => {
     { value: "Male", label: "Male" },
     { value: "Female", label: "Female" },
     { value: "Either", label: "Either" },
+    { value: "Others", label: "Others" },
+  ];
+  const currencyoptions = [
+    { value: "United States Dollar (USD)", label: "United States Dollar (USD)" },
+    { value: "Euro (EUR)", label: "Euro (EUR)" },
+    { value: "British Pound Sterling (GBP)", label: "British Pound Sterling (GBP)" },
+    { value: "Japanese Yen (JPY)", label: "Japanese Yen (JPY)" },
+    { value: "Canadian Dollar (CAD)", label: "Canadian Dollar (CAD)" },
+    { value: "Australian Dollar (AUD)", label: "Australian Dollar (AUD)" },
+    { value: "Swiss Franc (CHF)", label: "Swiss Franc (CHF)" },
+    { value: "Chinese Yuan (CNY)", label: "Chinese Yuan (CNY)" },
+    { value: "Indian Rupee (INR)", label: "Indian Rupee (INR)" },
+    { value: "Brazilian Real (BRL)", label: "Brazilian Real (BRL)" },
+    { value: "Russian Ruble (RUB)", label: "Russian Ruble (RUB)" },
+    { value: "South Korean Won (KRW)", label: "South Korean Won (KRW)" },
+    { value: "Mexican Peso (MXN)", label: "Mexican Peso (MXN)" },
+    { value: "South African Rand (ZAR)", label: "South African Rand (ZAR)" },
+    { value: "Saudi Riyal (SAR)", label: "Saudi Riyal (SAR)" },
+    { value: "Turkish Lira (TRY)", label: "Turkish Lira (TRY)" },
+    { value: "Hong Kong Dollar (HKD)", label: "Hong Kong Dollar (HKD)" },
+    { value: "Singapore Dollar (SGD)", label: "Singapore Dollar (SGD)" },
+    { value: "New Zealand Dollar (NZD)", label: "New Zealand Dollar (NZD)" },
+    { value: "Norwegian Krone (NOK)", label: "Norwegian Krone (NOK)" },
+    { value: "Others", label: "Others" },
   ];
   const qualificationoptions = [
-    { value: "Certificate", label: "Certificate" },
-    { value: "Diploma", label: "Diploma" },
-    { value: "Associate", label: "Associate" },
-    { value: "Degree Bachelor", label: "Degree Bachelor" },
+    { value: "High School Diploma/GED", label: "High School Diploma/GED" },
+    { value: "Bachelor's Degree", label: "Bachelor's Degree" },
     { value: "Master's Degree", label: "Master's Degree" },
+    { value: "Doctorate (Ph.D.)", label: "Doctorate (Ph.D.)" },
+    { value: "Professional Certifications", label: "Professional Certifications" },
+    { value: "Vocational Training", label: "Vocational Training" },
+    { value: "Apprenticeships", label: "Apprenticeships" },
+    { value: "Licenses", label: "Licenses" },
+    { value: "Language Proficiency Certificates", label: "Language Proficiency Certificates" },
+    { value: "Industry-Specific Training", label: "Industry-Specific Training" },
+    { value: "Soft Skills Development", label: "Soft Skills Development" },
+    { value: "Online Courses and MOOCs", label: "Online Courses and MOOCs" },
+    { value: "Military Training and Service", label: "Military Training and Service" },
+    { value: "Internships", label: "Internships" },
+    { value: "Work Experience", label: "Work Experience" },
     { value: "Others", label: "Others" },
   ];
   const [selectedcatgOption, setSelectedcatgOption] = useState(null);
+  const [selectedCurrency, setSelectedCurrency] = useState(null);
   const [selectedJobTypeOption, setSelectedJobTypeOption] = useState<any>(null);
   const [selectedGenderOption, setSelectedGenderOption] = useState<any>(null);
   const [selectedQualificationOption, setSelectedQualificationOption] =
@@ -156,6 +191,9 @@ const useRegistrationState = () => {
 
   const handleCatgChange = (selectedOption: any) => {
     setSelectedcatgOption(selectedOption);
+  };
+  const handleCurrencyChange = (selectedOption: any) => {
+    setSelectedCurrency(selectedOption);
   };
   const handleJobTypeChange = (selectedOption: any) => {
     setSelectedJobTypeOption(selectedOption);
@@ -179,12 +217,15 @@ const useRegistrationState = () => {
     catgoptions,
     qualificationoptions,
     genderoptions,
+    currencyoptions,
     jobtypeoptions,
     selectedcatgOption,
+    selectedCurrency,
     selectedJobTypeOption,
     selectedGenderOption,
     selectedQualificationOption,
     handleCatgChange,
+    handleCurrencyChange,
     handleJobTypeChange,
     handleGenderTypeChange,
     handleQualificationChange,

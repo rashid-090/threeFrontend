@@ -26,13 +26,16 @@ function PostJobs() {
     catgoptions,
     qualificationoptions,
     genderoptions,
+    currencyoptions,
     jobtypeoptions,
     selectedcatgOption,
+    selectedCurrency,
     selectedJobTypeOption,
     selectedGenderOption,
     selectedQualificationOption,
     handleCatgChange,
     handleJobTypeChange,
+    handleCurrencyChange,
     handleGenderTypeChange,
     handleQualificationChange,
   } = useJob();
@@ -162,26 +165,42 @@ function PostJobs() {
               </span> */}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <span className="flex flex-col gap-1 w-full">
+                    <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
+                      Salary Offer
+                    </label>
+                    <input
+                      
+                      className="border-2 border-gray-200 px-3 py-2 font-normal text-sm"
+                      type="text"
+                      placeholder="100"
+                      name="salaryOffer"
+                      value={values?.salaryOffer}
+                      onChange={handleChange}
+                    />
+                  </span>
+                  <span className="flex flex-col gap-1 w-full">
+                    <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
+                      Currency
+                    </label>
+                    <Select
+                    
+                    className="w-full text-sm font-normal text-gray-500"
+                    value={selectedCurrency}
+                    onChange={handleCurrencyChange}
+                    options={currencyoptions}
+                    isSearchable={true}
+                    placeholder="Select Currency"
+                  />
+                  </span>
+                </div>
                 <span className="flex flex-col gap-1 w-full">
                   <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
-                    Salary Offer <span className="text-red-500">*</span>
+                    Close Date <span className="text-red-500">*</span>
                   </label>
                   <input
                     required
-                    className="border-2 border-gray-200 px-3 py-2 font-normal text-sm"
-                    type="text"
-                    placeholder="10 $"
-                    name="salaryOffer"
-                    value={values?.salaryOffer}
-                    onChange={handleChange}
-                  />
-                </span>
-                <span className="flex flex-col gap-1 w-full">
-                  <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
-                    Close Date 
-                  </label>
-                  <input
-               
                     className="border-2 border-gray-200 px-3 py-2 font-normal text-sm"
                     type="date"
                     placeholder="Enter Location"
