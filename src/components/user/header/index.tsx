@@ -57,8 +57,8 @@ const Header: React.FC<HeaderProps> = () => {
     menuItems = [
       { title: `home`, url: `/` },
       { title: `about us`, url: `/about-us` },
-      { title: `resumes`, url: `/resumes` },
-      { title: `jobs`, url: `/jobs` },
+      // { title: `resumes`, url: `/resumes` },
+      // { title: `jobs`, url: `/jobs` },
       { title: `contact us`, url: `/contact-us` },
       // Add any other menu items for superAdmin here
     ];
