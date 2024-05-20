@@ -168,10 +168,10 @@ function PostJobs() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <span className="flex flex-col gap-1 w-full">
                     <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
-                      Salary Offer
+                      Salary Offer <span className="text-red-500">*</span>
                     </label>
                     <input
-                      
+                      required
                       className="border-2 border-gray-200 px-3 py-2 font-normal text-sm"
                       type="text"
                       placeholder="100"
@@ -182,10 +182,10 @@ function PostJobs() {
                   </span>
                   <span className="flex flex-col gap-1 w-full">
                     <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
-                      Currency
+                      Currency <span className="text-red-500">*</span>
                     </label>
                     <Select
-                    
+                    required
                     className="w-full text-sm font-normal text-gray-500"
                     value={selectedCurrency}
                     onChange={handleCurrencyChange}

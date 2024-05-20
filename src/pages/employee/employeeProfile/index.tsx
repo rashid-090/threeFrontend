@@ -325,10 +325,10 @@ function EmployeeProfile() {
             </span>
             <span className="flex flex-col gap-1 w-full">
               <label className="text-sm text-gray-500 font-semibold capitalize tracking-widest">
-                Currency
+                Currency <span className="text-red-500">*</span>
               </label>
               <Select
-                    
+                    required
                     className="w-full text-sm font-normal text-gray-500"
                     options={currencyoptions}
                     isSearchable={true}
@@ -379,7 +379,7 @@ function EmployeeProfile() {
             </div>
 
             <div className="md:col-span-3">
-              <h4>Email  cv / resume to : <a href="mailto:recruitments@threeseasonsglobal.com" target="_blank" className="pl-2 hover:text-slclr hover:underline duration-150">Recruitments@threeseasonsglobal.com</a></h4>
+              <h4>Email  cv / resume to : <a href="mailto:careers@threeseasonsglobal.com" target="_blank" className="pl-2 hover:text-slclr hover:underline duration-150">careers@threeseasonsglobal.com</a></h4>
             </div>
 
             <hr className="md:col-span-3 my-5" />
